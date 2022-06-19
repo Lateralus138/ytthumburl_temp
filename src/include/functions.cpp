@@ -1,7 +1,7 @@
 #include "functions.h"
 #include <algorithm>
 
-ethrow_params e_params = {true, 0};
+// ethrow_params e_params = {true, 0};
 
 namespace GLOBALS
 {
@@ -17,6 +17,8 @@ namespace GLOBALS
       exit((params_.exit_ != 0) ? params_.exit_ : eint_);
     }
   }
+  ethrow_params e_params = {true, 0};
+  std::error_code e_code;
   bool is_string_uint(std::string string_)
   {
     bool is_uint = true;

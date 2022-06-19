@@ -7,7 +7,7 @@
 
 #include "functions.h"
 #include <filesystem>
-#include <algorithm>
+
 #include "Bench.h"
 
 
@@ -17,16 +17,6 @@ int main(int argc, const char *argv[])
 	using namespace Bench;
 	if (argc > 1)
 	{
-		// start();
-		// if (std::regex_match(argv[1], HELP))
-		// {
-		// 	std::cout << "HELP\n";
-		// 	// return 0;
-		// }
-		// stop();
-		// print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
-		// start();
-		// std::string lower = argv[1];
 		for (int index = 1; index < argc; index++)
 		{
 			const std::string
@@ -48,23 +38,19 @@ int main(int argc, const char *argv[])
 				return 0;
 			}			
 		}
-		// stop();
-		// print_duration("'if (lower == \"help\")... ' execution time: ", "\n", Start, Stop);
 	}
-	// 	ethrow_params ep;
-	// std::cout << e_params.print_ << '\n';
-	// const bool PROCEXISTS = []()
-	// {
-	// 	std::error_code ec;
-	// 	bool ex = std::filesystem::exists(std::filesystem::path("/proc"), ec);
-	// 	GLOBALS::ethrow_params ep = {true, 0};
-	// 	GLOBALS::ethrow(ec, ep);
-	// 	return ex;
-	// }();
+
+	const bool PROCEXISTS = []()
+	{
+		// std::error_code ec;
+		bool ex = std::filesystem::exists(std::filesystem::path("/proc"), GLOBALS::e_code);
+		GLOBALS::ethrow(GLOBALS::e_code, GLOBALS::e_params);
+		return ex;
+	}();
 	// = std::filesystem::exists(std::filesystem::path("/procs"), ec);
 	// GLOBALS::ethrow(ec, ep);
 	// GLOBALS::ethrow_params ep;
-	// std::cout << GLOBALS::ethrowparams.<< '\n';
+	std::cout << PROCEXISTS << '\n';
 	// Bench::start();
 	// bool a = is_uint_regex("00000000000000h");
 	// Bench::stop();
