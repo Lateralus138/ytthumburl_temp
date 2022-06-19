@@ -36,7 +36,6 @@ int main(int argc, const char *argv[])
 		}
 		stop();
 		print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
-
 	}
 	// 	ethrow_params ep;
 	// std::cout << e_params.print_ << '\n';
