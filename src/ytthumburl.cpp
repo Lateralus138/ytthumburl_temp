@@ -25,18 +25,31 @@ int main(int argc, const char *argv[])
 		// }
 		// stop();
 		// print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
-		start();
+		// start();
 		// std::string lower = argv[1];
-		const std::string ARGLOWER = GLOBALS::string_tolower(argv[1]);
-		// std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-		if (GLOBALS::string_tolower(ARGLOWER) == "help")
-		// if (lower == "help")
+		for (int index = 1; index < argc; index++)
 		{
-			std::cout << "HELP\n";
-			// return 0;
+			const std::string
+					ARG = argv[index],
+					ARGL = GLOBALS::string_tolower(ARG);
+			if (ARGL == "-h" || ARGL == "--help")
+			{
+				std::cout << "HELP\n";
+				return 0;
+			}
+			if (ARGL == "-v" || ARGL == "--video-id")
+			{
+				std::cout << "HELP\n";
+				return 0;
+			}
+			if (ARGL == "-i" || ARGL == "--index")
+			{
+				std::cout << "HELP\n";
+				return 0;
+			}			
 		}
-		stop();
-		print_duration("'if (lower == \"help\")... ' execution time: ", "\n", Start, Stop);
+		// stop();
+		// print_duration("'if (lower == \"help\")... ' execution time: ", "\n", Start, Stop);
 	}
 	// 	ethrow_params ep;
 	// std::cout << e_params.print_ << '\n';
