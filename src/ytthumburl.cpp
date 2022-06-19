@@ -12,13 +12,8 @@
 
 int main(int argc, const char *argv[])
 {
-	// const char *a[] = {"word"};
-	// const char b[] = {"word"};
-	// const std::string c = "word";
-	// std::cout	<< *a	<< ':'	<< sizeof(*a)	<< '\n';
-	// std::cout	<< b	<< ':'	<< sizeof(b) 	<< '\n';
-	// std::cout	<< c	<< ':' 	<< sizeof(c) 	<< '\n';
 	using namespace GLOBALS;
+	using namespace GLOBALS::FUNCTIONS;
 	using namespace Bench;
 	if (argc > 1)
 	{
