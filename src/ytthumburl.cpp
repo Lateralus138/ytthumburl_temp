@@ -7,25 +7,24 @@
 
 #include "functions.h"
 #include <filesystem>
-
+#include <algorithm>
 #include "Bench.h"
 
 
 int main(int argc, const char *argv[])
 {
-	using namespace REGEX;
+	// using namespace REGEX;
 	using namespace Bench;
 	if (argc > 1)
 	{
-		start();
-		if (std::regex_match(argv[1], HELP))
-		{
-			std::cout << "HELP\n";
-			// return 0;
-		}
-		stop();
-		print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
-
+		// start();
+		// if (std::regex_match(argv[1], HELP))
+		// {
+		// 	std::cout << "HELP\n";
+		// 	// return 0;
+		// }
+		// stop();
+		// print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
 		start();
 		std::string lower = argv[1];
 		std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
@@ -35,7 +34,7 @@ int main(int argc, const char *argv[])
 			// return 0;
 		}
 		stop();
-		print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
+		print_duration("'if (lower == \"help\")... ' execution time: ", "\n", Start, Stop);
 	}
 	// 	ethrow_params ep;
 	// std::cout << e_params.print_ << '\n';

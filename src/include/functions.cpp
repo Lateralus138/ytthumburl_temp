@@ -38,11 +38,3 @@ namespace GLOBALS
     return is_string_uint(string_);
   }
 };
-
-namespace REGEX
-{
-  const std::regex
-    HELP  ("^-([hH]|-[hH][eE][lL][pP])$"),
-    VIDID ("^-([vV]|-[vV][iI][dD][eE][oO]-[iI][dD])$"),
-    INDEX ("^-([iI]|-[iI][nN][dD][eE][xX])$");
-};

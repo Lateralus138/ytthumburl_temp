@@ -3,7 +3,6 @@
 #define FUNCTIONS_H
 
 #include <iostream>
-#include <regex>
 #include <vector>
 
 struct ethrow_params
@@ -21,14 +20,6 @@ namespace GLOBALS
   extern void ethrow(std::error_code ec_, ethrow_params params_);
   extern bool is_string_uint(std::string string_);
   extern bool is_string_int(std::string string_);
-};
-
-namespace REGEX
-{
-  extern const std::regex
-    HELP,
-    VIDID,
-    INDEX;
 };
 
 #endif
