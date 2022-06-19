@@ -25,7 +25,10 @@ namespace GLOBALS
 
 namespace REGEX
 {
-  extern const std::regex UINT, INT;
+  extern const std::regex
+    HELP,
+    VIDID,
+    INDEX;
 };
 
 #endif

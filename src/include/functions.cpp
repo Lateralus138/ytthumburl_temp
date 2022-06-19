@@ -1,10 +1,5 @@
 #include "functions.h"
 
-// struct ethrow_params
-// {
-//     bool print_ = true;
-//     int exit_ = 0;
-// };
 ethrow_params e_params = {true, 0};
 
 namespace GLOBALS
@@ -47,6 +42,7 @@ namespace GLOBALS
 namespace REGEX
 {
   const std::regex
-    UINT("^[0-9]+$"),
-    INT("^[-+]?[0-9]+$");
+    HELP  ("^-([hH]|-[hH][eE][lL][pP])$"),
+    VIDID ("^-([vV]|-[vV][iI][dD][eE][oO]-[iI][dD])$"),
+    INDEX ("^-([iI]|-[iI][nN][dD][eE][xX])$");
 };

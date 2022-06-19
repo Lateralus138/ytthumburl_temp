@@ -4,22 +4,41 @@
 // Ian Pride @ New Pride Software/Services
 // Sat 18 Jun 2022 21:18:26 CST
 // -----------------------------------------------
-#include "Bench.h"
+
 #include "functions.h"
 #include <filesystem>
-// struct ethrow_params
-// {
-// 	bool print_;
-// 	int exit_;
-// };
-// using namespace Bench;
-// #include <locale>
-// #include <iomanip>
+
+#include "Bench.h"
 
 
-int main()
+int main(int argc, const char *argv[])
 {
-// 	ethrow_params ep;
+	using namespace REGEX;
+	using namespace Bench;
+	if (argc > 1)
+	{
+		start();
+		if (std::regex_match(argv[1], HELP))
+		{
+			std::cout << "HELP\n";
+			// return 0;
+		}
+		stop();
+		print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
+
+		start();
+		std::string lower = argv[1];
+		std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+		if (lower == "help")
+		{
+			std::cout << "HELP\n";
+			// return 0;
+		}
+		stop();
+		print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
+
+	}
+	// 	ethrow_params ep;
 	// std::cout << e_params.print_ << '\n';
 	// const bool PROCEXISTS = []()
 	// {
