@@ -12,7 +12,6 @@
 
 int main(int argc, const char *argv[])
 {
-
 	// const char *a[] = {"word"};
 	// const char b[] = {"word"};
 	// const std::string c = "word";
