@@ -26,9 +26,11 @@ int main(int argc, const char *argv[])
 		// stop();
 		// print_duration("'if (std::regex_match(argv[1], HELP))... ' execution time: ", "\n", Start, Stop);
 		start();
-		std::string lower = argv[1];
-		std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
-		if (lower == "help")
+		// std::string lower = argv[1];
+		const std::string ARGLOWER = GLOBALS::string_tolower(argv[1]);
+		// std::transform(lower.begin(), lower.end(), lower.begin(), ::tolower);
+		if (GLOBALS::string_tolower(ARGLOWER) == "help")
+		// if (lower == "help")
 		{
 			std::cout << "HELP\n";
 			// return 0;

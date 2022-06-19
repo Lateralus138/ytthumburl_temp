@@ -1,4 +1,5 @@
 #include "functions.h"
+#include <algorithm>
 
 ethrow_params e_params = {true, 0};
 
@@ -36,5 +37,11 @@ namespace GLOBALS
     if ((init == '-') || (init == '+'))
       string_ = string_.substr(1);
     return is_string_uint(string_);
+  }
+
+  std::string string_tolower(std::string string_)
+  {
+    std::transform(string_.begin(), string_.end(), string_.begin(), ::tolower);
+    return string_;
   }
 };
