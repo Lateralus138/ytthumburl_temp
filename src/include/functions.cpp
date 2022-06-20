@@ -1,6 +1,6 @@
 #include "functions.h"
 #include <algorithm>
-
+#include <cstring>
 namespace GLOBALS
 {
   namespace VARIABLES
@@ -26,6 +26,19 @@ namespace GLOBALS
     {
       bool is_uint = true;
       for (unsigned int i = 0; i < (unsigned int)string_.length(); i++)
+      {
+        if (!std::isdigit(string_[i]))
+        {
+          is_uint = false;
+          break;
+        }
+      }
+      return is_uint;
+    }
+    bool is_char_string_uint(char * string_)
+    {
+      bool is_uint = true;
+      for (int i = 0; i < (int) std::strlen(string_); i++)
       {
         if (!std::isdigit(string_[i]))
         {
