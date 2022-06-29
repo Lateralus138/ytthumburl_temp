@@ -8,6 +8,12 @@ struct ethrow_params
   bool print_;
   int exit_;
 };
+struct switches
+{
+  std::string videoIndex;
+  std::string videoUrl;
+  std::string videoId;
+};
 namespace GLOBALS
 {
   namespace VARIABLES
@@ -26,6 +32,7 @@ namespace GLOBALS
     extern bool is_string_int(std::string string_);
     extern std::string string_tolower(std::string string_);
     extern bool hasNextArg(int index, int maxIndex);
+    extern void processArgs(int argc, char *argv[], switches &swtch);
   };
 };
 
