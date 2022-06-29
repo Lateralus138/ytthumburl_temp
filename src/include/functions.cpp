@@ -72,7 +72,7 @@ namespace GLOBALS
     }
     void processArgs(int argc, char *argv[], switches &swtch)
     {
-//      using namespace GLOBALS::FUNCTIONS;
+      int kill = 0;
       for (int index = 1; index < argc; index++)
       {
         const std::string
@@ -92,8 +92,9 @@ namespace GLOBALS
           }
           else
           {
-            std::cerr << "No argument provided for " << ARG << '\n';
-            std::exit(2);
+            errOnArgExit(ARG, 2);
+//            std::cerr << "No argument provided for " << ARG << '\n';
+//            std::exit(2);
           }
         }
         if (ARGL == "-v" || ARGL == "--video-id")
@@ -104,8 +105,9 @@ namespace GLOBALS
           }
           else
           {
-            std::cerr << "No argument provided for " << ARG << '\n';
-            std::exit(3);
+            errOnArgExit(ARG, 3);
+//            std::cerr << "No argument provided for " << ARG << '\n';
+//            std::exit(3);
           }
         }
         if (ARGL == "-i" || ARGL == "--index")
@@ -116,11 +118,17 @@ namespace GLOBALS
           }
           else
           {
-            std::cerr << "No argument provided for " << ARG << '\n';
-            std::exit(4);
+            errOnArgExit(ARG, 4);
+//            std::cerr << "No argument provided for " << ARG << '\n';
+//            std::exit(4);
           }
         }
       }
+    }
+    void errOnArgExit(std::string arg, int err)
+    {
+      std::cerr << "No argument provided for " << arg << '\n';
+      std::exit(err);   
     }
   };
 };

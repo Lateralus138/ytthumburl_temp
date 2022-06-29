@@ -33,6 +33,7 @@ namespace GLOBALS
     extern std::string string_tolower(std::string string_);
     extern bool hasNextArg(int index, int maxIndex);
     extern void processArgs(int argc, char *argv[], switches &swtch);
+    extern void errOnArgExit(std::string arg, int err);
   };
 };
 
