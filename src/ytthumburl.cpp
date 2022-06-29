@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 {
   struct switches
   {
-    int videoIndex = 0;
+    std::string videoIndex;
     std::string videoUrl;
     std::string videoId;
   } swtch;
@@ -48,11 +48,27 @@ int main(int argc, char *argv[])
       }
       if (ARGL == "-v" || ARGL == "--video-id")
       {
-        return 0;
+        if (hasNextArg(index, argc))
+        {
+          swtch.videoId = std::string(argv[index + 1]);
+        }
+        else
+        {
+          std::cerr << "No argument provided for " << ARG << '\n';
+          return 3;
+        }
       }
       if (ARGL == "-i" || ARGL == "--index")
       {
-        return 0;
+        if (hasNextArg(index, argc))
+        {
+          swtch.videoIndex = std::string(argv[index + 1]);
+        }
+        else
+        {
+          std::cerr << "No argument provided for " << ARG << '\n';
+          return 4;
+        }
       }
     }
   }
