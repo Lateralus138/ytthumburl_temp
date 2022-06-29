@@ -60,5 +60,9 @@ namespace GLOBALS
       std::transform(string_.begin(), string_.end(), string_.begin(), ::tolower);
       return string_;
     }
+    bool hasNextArg(int index, int maxIndex)
+    {
+      return ((index + 1) < maxIndex);
+    }
   };
 };

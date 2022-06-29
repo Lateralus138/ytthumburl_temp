@@ -25,6 +25,7 @@ namespace GLOBALS
     extern bool is_char_string_uint(char * string_);
     extern bool is_string_int(std::string string_);
     extern std::string string_tolower(std::string string_);
+    extern bool hasNextArg(int index, int maxIndex);
   };
 };
 
