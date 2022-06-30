@@ -72,7 +72,6 @@ namespace GLOBALS
     }
     void processArgs(int argc, char *argv[], switches &swtch)
     {
-      int kill = 0;
       for (int index = 1; index < argc; index++)
       {
         const std::string
@@ -84,51 +83,81 @@ namespace GLOBALS
           std::cout << "HELP\n";
           std::exit(0);
         }
-        if (ARGL == "-u" || ARGL == "--url")
-        {
-          if (hasNextArg(index, argc))
-          {
-            swtch.videoUrl = std::string(argv[index + 1]);
-          }
-          else
-          {
-            errOnArgExit(ARG, 2);
-//            std::cerr << "No argument provided for " << ARG << '\n';
-//            std::exit(2);
-          }
-        }
-        if (ARGL == "-v" || ARGL == "--video-id")
-        {
-          if (hasNextArg(index, argc))
-          {
-            swtch.videoId = std::string(argv[index + 1]);
-          }
-          else
-          {
-            errOnArgExit(ARG, 3);
-//            std::cerr << "No argument provided for " << ARG << '\n';
-//            std::exit(3);
-          }
-        }
-        if (ARGL == "-i" || ARGL == "--index")
-        {
-          if (hasNextArg(index, argc))
-          {
-            swtch.videoIndex = std::string(argv[index + 1]);
-          }
-          else
-          {
-            errOnArgExit(ARG, 4);
-//            std::cerr << "No argument provided for " << ARG << '\n';
-//            std::exit(4);
-          }
-        }
+        arg_check checks;
+        checks.ARGL  = ARGL;
+        checks.arg1  = "-u";
+        checks.arg2  = "--url";
+        checks.argc  = argc;
+        checks.argv  = argv;
+        checks.err   = 2;
+        checks.index = index;
+        checks.swtch = swtch;
+        argCheckOrExit(checks);
+//        if (ARGL == "-u" || ARGL == "--url")
+//        {
+//          if (hasNextArg(index, argc))
+//          {
+//            swtch.videoUrl = std::string(argv[index + 1]);
+//          }
+//          else
+//          {
+//            errOnArgExit(ARG, 2);
+//          }
+//        }
+        checks.arg1  = "-v";
+        checks.arg2  = "--video-id";
+        checks.err   = 3;
+        argCheckOrExit(checks);
+//        if (ARGL == "-v" || ARGL == "--video-id")
+//        {
+//          if (hasNextArg(index, argc))
+//          {
+//            swtch.videoId = std::string(argv[index + 1]);
+//          }
+//          else
+//          {
+//            errOnArgExit(ARG, 3);
+////            std::cerr << "No argument provided for " << ARG << '\n';
+////            std::exit(3);
+//          }
+//        }
+        checks.arg1  = "-i";
+        checks.arg2  = "--index";
+        checks.err   = 4;
+        argCheckOrExit(checks);        
+//        if (ARGL == "-i" || ARGL == "--index")
+//        {
+//          if (hasNextArg(index, argc))
+//          {
+//            swtch.videoIndex = std::string(argv[index + 1]);
+//          }
+//          else
+//          {
+//            errOnArgExit(ARG, 4);
+////            std::cerr << "No argument provided for " << ARG << '\n';
+////            std::exit(4);
+//          }
+//        }
       }
     }
     void errOnArgExit(std::string arg, int err)
     {
       std::cerr << "No argument provided for " << arg << '\n';
       std::exit(err);   
+    }
+    void argCheckOrExit(arg_check check)
+    {
+        if (check.ARGL == check.arg1 || check.ARGL == check.arg2)
+        {
+          if (hasNextArg(check.index, check.argc))
+          {
+            check.swtch.videoUrl = std::string(check.argv[check.index + 1]);
+          }
+          else
+          {
+            errOnArgExit(check.ARGL, 2);
+          }
+        }   
     }
   };
 };

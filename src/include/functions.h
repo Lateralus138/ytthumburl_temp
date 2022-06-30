@@ -14,6 +14,17 @@ struct switches
   std::string videoUrl;
   std::string videoId;
 };
+struct arg_check
+{
+    int index;
+    int argc;
+    switches swtch;
+    std::string ARGL;
+    int err;
+    std::string arg1;
+    std::string arg2;
+    char ** argv;
+};
 namespace GLOBALS
 {
   namespace VARIABLES
@@ -34,6 +45,7 @@ namespace GLOBALS
     extern bool hasNextArg(int index, int maxIndex);
     extern void processArgs(int argc, char *argv[], switches &swtch);
     extern void errOnArgExit(std::string arg, int err);
+    extern void argCheckOrExit(arg_check check);
   };
 };
 
